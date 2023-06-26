@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    border: solid red;
+}
+
+/* form{
+    height: 50vh;
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+label{
+    font-size: 20;
+    font-weight: 800;
+}
+
+button{
+    width: max-content;
+} */
