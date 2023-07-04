@@ -1,6 +1,8 @@
 const section = document.getElementsByTagName("section")[0];
 const token = localStorage.token;
 const formEle = document.forms[0];
+const BASE_URL = "https://clockin-be.onrender.com";
+// const BASE_URL = "http://localhost:8080";
 
 // const time = document.getElementsByTagName('div')[0];
 // let geoLocation;
@@ -22,18 +24,32 @@ function geoLocation(latitude, longitude) {
     event.preventDefault();
     const code = event.target.code.value;
    
-    fetch("http://localhost:8080/org", {
+    fetch(`${BASE_URL}/org`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}`,
      "Content-Type": "application/json"},
       body: JSON.stringify({ org_code: code, latitude: latitude, longitude: longitude})
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => location.reload());
+      // formEle.reset();
   });
+
 }
 
-fetch("http://localhost:8080/user/profile", {
+fetch(`${BASE_URL}/org`, {
+  method: "GET",
+  headers: { Authorization: `Bearer ${token}` },
+})
+  .then((res) => res.json())
+  .then((data) => {
+    const code = document.createElement("p");
+    code.textContent = "Organization code: " + data.org_code;
+    
+    section.append(code);
+  });
+
+fetch(`${BASE_URL}/user/profile`, {
   method: "GET",
   headers: { Authorization: `Bearer ${token}` },
 })
@@ -42,6 +58,6 @@ fetch("http://localhost:8080/user/profile", {
     const p = document.createElement("p");
     const name = document.createElement("p");
     p.textContent = data.email;
-    name.textContent = data.name;
+    name.textContent = "Organization Name: " + data.name;
     section.append(name, p);
   });
