@@ -1,14 +1,16 @@
-const time = document.getElementsByTagName('div')[0];
+const button = document.getElementsByClassName("sign_up")[0];
+const signup_options = document.getElementsByClassName('signup_options')[0];
 
-const successCallback = (position) => {
-    console.log(position);
+button.addEventListener("click", function () {
+    signup_options.style.display = "block";
+});
+
+function handleGoogleAtuh(){
+    fetch("http://localhost:8080/auth", { method: "GET" })
+    .then((res) => res.json())
+    .then((data) => console.log());
 }
 
-const errorCallback = (error) => {
-    console.log(error)
+function handleSignUp(){
+    location.href = "./admin/index.html"
 }
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
-
-let date = new Date();
-time.textContent = " Signed in at: " + date;
