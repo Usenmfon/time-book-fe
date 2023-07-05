@@ -1,8 +1,8 @@
 const section = document.getElementsByTagName("section")[0];
 const token = localStorage.token;
 const formEle = document.forms[0];
-const BASE_URL = "https://clockin-be.onrender.com";
-// const BASE_URL = "http://localhost:8080";
+// const BASE_URL = "https://clockin-be.onrender.com";
+const BASE_URL = "http://localhost:8080";
 
 // const time = document.getElementsByTagName('div')[0];
 // let geoLocation;

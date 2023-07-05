@@ -8,11 +8,20 @@
   </head>
   <body>
     <div class="signup_options">
-        <button type="button" id="google_auth" onclick="handleGoogleAtuh()">As User</button>
-        <button id="signup_auth" onclick="handleSignUp()">As Organization</button>
+        <button type="button" onclick="handleSignUp('user')">As User</button>
+        <button id="signup_auth" onclick="handleSignUp('org')">As Organization</button>
     </div>
-    <header>WELCOME TO CLOCK IN</header>
-    <button class="sign_up">Sign Up</button>
+    <header>WELCOME TO CLOCKIN</header>
+    <section>
+      <div class="auth_btns">
+        <button id="signup">SignUp</button>
+        <button onclick="login()">Login</button>
+      </div>
+      <div class="extra_btns">
+        <button>Dashboard</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </section>
     <script src="./script.js"></script>
   </body>
 </html>
