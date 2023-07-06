@@ -1,6 +1,6 @@
 const form = document.forms[0];
-// const BASE_URL = "https://clockin-be.onrender.com";
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://clockin-be.onrender.com";
+// const BASE_URL = "http://localhost:8080";
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
